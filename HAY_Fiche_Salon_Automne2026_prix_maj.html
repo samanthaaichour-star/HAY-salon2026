@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>HAY — Fiche Salon Automne 2026 (prix HT)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif;background:#f5f5f5;color:#111}
+.root{padding:20px;max-width:700px;margin:0 auto}
+.hdr{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:14px;padding:16px 18px;margin-bottom:16px;border:1px solid #e5e5e5}
+.logo{font-size:26px;font-weight:700;letter-spacing:-1px;color:#111}
+.hdr-sub{font-size:10px;color:#aaa;letter-spacing:.07em;text-transform:uppercase;margin-top:3px}
+.hdr-r{text-align:right;font-size:11px;color:#888}
+.hdr-r strong{display:block;font-size:12px;font-weight:600;color:#111}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tab{font-size:13px;font-weight:500;padding:10px 18px;border-radius:24px;border:1.5px solid #ddd;color:#666;cursor:pointer;background:#fff;transition:all .15s;min-height:40px;-webkit-tap-highlight-color:transparent}
+.tab.on{background:#111;color:#fff;border-color:#111}
+.sec{display:none}
+.sec.on{display:block}
+.legend{font-size:11px;color:#999;margin-bottom:12px;display:flex;gap:14px;background:#fff;padding:10px 14px;border-radius:10px;border:1px solid #e5e5e5}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:1px}
+.all-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:10px}
+.tile{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:14px}
+.tile-name{font-size:12px;font-weight:600;color:#111;margin-bottom:3px;line-height:1.3}
+.tile-des{font-size:11px;color:#999;margin-bottom:8px}
+.tile-price{font-size:15px;font-weight:700;color:#111}
+.tile-from{font-size:10px;color:#bbb;display:block;margin-bottom:1px}
+.card{border:1.5px solid #e5e5e5;border-radius:14px;margin-bottom:12px;overflow:hidden;background:#fff}
+.card-hdr{display:flex;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.accent{width:6px;flex-shrink:0}
+.card-body{flex:1;padding:16px 18px}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.pname{font-size:16px;font-weight:600;color:#111;margin-bottom:3px;line-height:1.2}
+.pdes{font-size:12px;color:#999}
+.pright{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
+.bdg{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:6px}
+.bdg-new{background:#dcfce7;color:#166534}
+.bdg-upd{background:#dbeafe;color:#1e40af}
+.pmain{font-size:15px;font-weight:600;color:#111;white-space:nowrap}
+.pfrom{font-size:10px;color:#bbb;text-align:right}
+.chev{font-size:14px;color:#bbb;transition:transform .2s;display:inline-block;margin-left:5px}
+.card.open .chev{transform:rotate(180deg)}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:11px;padding:5px 10px;border-radius:20px;font-weight:500;line-height:1}
+.pill-g{background:#dcfce7;color:#166534}
+.pill-b{background:#dbeafe;color:#1e40af}
+.pill-y{background:#fef9c3;color:#854d0e}
+.pill-n{background:#f5f5f5;color:#555;border:1px solid #eee}
+.expand{max-height:0;overflow:hidden;transition:max-height .28s ease}
+.card.open .expand{max-height:1200px}
+.expand-inner{padding:16px 18px 18px;border-top:1px solid #f0f0f0}
+.egrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.egrid{grid-template-columns:1fr}}
+.eblock{background:#f8f8f8;border-radius:10px;padding:14px}
+.eblock-full{background:#f8f8f8;border-radius:10px;padding:14px;margin-top:10px}
+.etitle{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#bbb;font-weight:600;margin-bottom:7px}
+.etext{font-size:13px;color:#555;line-height:1.55}
+.ptable{width:100%;border-collapse:collapse}
+.ptable td{font-size:12px;color:#666;padding:4px 0}
+.ptable td:last-child{text-align:right;font-weight:600;color:#111}
+.ctable{width:100%;border-collapse:collapse;table-layout:fixed}
+.ctable th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#bbb;font-weight:600;text-align:left;padding:0 4px 8px 0}
+.ctable th:not(:first-child){text-align:right}
+.ctable td{font-size:12px;color:#666;padding:6px 4px 6px 0;border-top:1px solid #efefef}
+.ctable td:not(:first-child){text-align:right;font-weight:600;color:#111}
+.cdots{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.cdot2{width:14px;height:14px;border-radius:50%;border:1px solid #ddd;flex-shrink:0}
+.clabel{font-size:10px;color:#aaa}
+.note{font-size:11px;color:#bbb;font-style:italic;margin-top:8px;line-height:1.4}
+.simcard{border:1.5px solid #e5e5e5;border-radius:14px;margin-bottom:14px;background:#fff;overflow:hidden}
+.simhead{padding:16px 18px;border-bottom:1px solid #f0f0f0}
+.simbody{padding:16px 18px}
+.simrow{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.simrow label{font-size:12px;color:#777;min-width:100px;flex-shrink:0}
+.simrow select{font-size:13px;flex:1;height:40px;border:1.5px solid #ddd;border-radius:10px;padding:0 10px;background:#fff;color:#111}
+.resblock{background:#f8f8f8;border-radius:10px;padding:16px;margin-top:10px}
+.resrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.reslabel{font-size:13px;color:#888}
+.resval{font-size:14px;font-weight:600;color:#111}
+.restotal{display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:1px solid #e5e5e5;margin-top:8px}
+.restlabel{font-size:13px;font-weight:500;color:#888}
+.restprice{font-size:28px;font-weight:700;color:#111}
+.launch{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+@media(max-width:400px){.launch{grid-template-columns:1fr}}
+.ltile{background:#fff;border-radius:10px;padding:14px;border:1px solid #e5e5e5}
+.ltile-label{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:#bbb;font-weight:600;margin-bottom:4px}
+.ltile-val{font-size:14px;font-weight:600;color:#111}
+</style>
+</head>
+<body>
+<div class="root">
+
+  <div class="hdr">
+    <div>
+      <div class="logo">HAY</div>
+      <div class="hdr-sub">3 jours de design · Automne 2026</div>
+    </div>
+    <div class="hdr-r">
+      <strong>Mode salon</strong>
+      <span>hayb2b.com · Prix HT excl. TVA</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" onclick="showTab('all',this)">Vue rapide</button>
+    <button class="tab" onclick="showTab('lum',this)">Luminaires</button>
+    <button class="tab" onclick="showTab('mob',this)">Mobilier</button>
+    <button class="tab" onclick="showTab('sim',this)">Simulateur</button>
+  </div>
+
+  <!-- VUE RAPIDE -->
+  <div class="sec on" id="sec-all">
+    <div class="legend">
+      <span><span class="dot" style="background:#22c55e"></span>Nouveau</span>
+      <span><span class="dot" style="background:#3b82f6"></span>Update de gamme</span>
+    </div>
+    <div class="all-grid">
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#22c55e"></span>Mimi Sofa</div><div class="tile-des">Philippe Malouin</div><span class="tile-from">à partir de</span><span class="tile-price">1 249,17 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#22c55e"></span>Compass Floor Lamp</div><div class="tile-des">Julien Renault</div><span class="tile-price">1 499,17 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#3b82f6"></span>Chisel Collection</div><div class="tile-des">Andreas Bergsaker</div><span class="tile-from">à partir de</span><span class="tile-price">282,50 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#22c55e"></span>Backflip Chair</div><div class="tile-des">Gudmundur Ludvik</div><span class="tile-price">204,17 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#22c55e"></span>Pack Chair</div><div class="tile-des">Jasper Morrison</div><span class="tile-from">à partir de</span><span class="tile-price">165,83 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#22c55e"></span>Canelé Table Lamp</div><div class="tile-des">Leclercq Viallet</div><span class="tile-price">165,83 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#22c55e"></span>Posto Table Lamp</div><div class="tile-des">Claire Lavabre</div><span class="tile-price">112,50 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#3b82f6"></span>Mags Soft Low Armrest</div><div class="tile-des">HAY</div><span class="tile-from">combi dès</span><span class="tile-price">2 833,34 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#3b82f6"></span>Tray Table</div><div class="tile-des">HAY</div><span class="tile-from">à partir de</span><span class="tile-price">165,83 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+      <div class="tile"><div class="tile-name"><span class="dot" style="background:#3b82f6"></span>Apex Collection</div><div class="tile-des">John Tree</div><span class="tile-from">à partir de</span><span class="tile-price">95,83 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span></span></div>
+    </div>
+    <div class="launch">
+      <div class="ltile"><div class="ltile-label">Lancement luminaires</div><div class="ltile-val">31 juillet 2026</div></div>
+      <div class="ltile"><div class="ltile-label">Lancement mobilier</div><div class="ltile-val">12 août 2026</div></div>
+    </div>
+  </div>
+
+  <!-- LUMINAIRES -->
+  <div class="sec" id="sec-lum">
+
+    <div class="card" id="cc1">
+      <div class="card-hdr" onclick="tog('cc1')">
+        <div class="accent" style="background:#22c55e"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Compass Floor Lamp</p><p class="pdes">Julien Renault</p></div>
+            <div class="pright"><span class="bdg bdg-new">Nouveau</span><span class="pmain">1 499,17 € HT<span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-y">Pièce signature</span><span class="pill pill-b">360° rotatif</span><span class="pill pill-n">Domestique & contract</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">Seul lampadaire avec bras extensible + base 360° + abat-jour orientable. Effet suspendu sans percer le plafond. Adapte sa portée à la pièce.</p></div>
+          <div class="eblock"><p class="etitle">Specs clés</p><p class="etext" style="margin-bottom:8px">W43,3 × D254 × H217 cm<br>Aluminium brossé<br>Réf. AF806-F646</p><div class="cdots"><div class="cdot2" style="background:#c0bfbe"></div><span class="clabel">Brushed aluminium</span></div></div>
+        </div>
+        <div class="eblock-full"><p class="etitle">Inspiration</p><p class="etext">Né d'une rampe architecturale à Melle, Belgique. Julien Renault transforme le détail du quotidien en objet remarquable — une philosophie qui parle aux amateurs de design.</p></div>
+      </div></div>
+    </div>
+
+    <div class="card" id="cc2">
+      <div class="card-hdr" onclick="tog('cc2')">
+        <div class="accent" style="background:#22c55e"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Canelé Table Lamp</p><p class="pdes">Leclercq Viallet</p></div>
+            <div class="pright"><span class="bdg bdg-new">Nouveau</span><span class="pmain">165,83 € HT<span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-y">Impact visuel fort</span><span class="pill pill-n">Table / sol / étagère</span><span class="pill pill-b">4 coloris</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">Le seul luminaire de table qui fait aussi sculpture. Plis textiles, lumière chaude tamisée. Fonctionne partout — table de nuit, bibliothèque, sol.</p></div>
+          <div class="eblock"><p class="etitle">Specs clés</p><p class="etext" style="margin-bottom:8px">W24 × D24 × H37 cm<br>Tripode acier + textile plissé</p><div class="cdots"><div class="cdot2" style="background:#f2ede0"></div><div class="cdot2" style="background:#c2cfd6"></div><div class="cdot2" style="background:#9aaa83"></div><div class="cdot2" style="background:#c44635"></div></div><div style="font-size:10px;color:#aaa;margin-top:4px">Warm white · Soft blue · Almond green · Tomato red</div></div>
+        </div>
+        <div class="eblock-full"><p class="etitle">Designer</p><p class="etext">Studio Leclercq Viallet, Paris — fondé en 2016, ESAD Reims. Pratique pluridisciplinaire objets, mobilier, textile.</p></div>
+      </div></div>
+    </div>
+
+    <div class="card" id="cc3">
+      <div class="card-hdr" onclick="tog('cc3')">
+        <div class="accent" style="background:#22c55e"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Posto Table Lamp</p><p class="pdes">Claire Lavabre</p></div>
+            <div class="pright"><span class="bdg bdg-new">Nouveau</span><span class="pmain">112,50 € HT<span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-y">Design épuré maximal</span><span class="pill pill-n">Bureau & résidentiel</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">3 pièces, 2 vis, 1 douille. Aucune vis visible posée sur table. Câble intégré en gorge arrière. Discrétion totale.</p></div>
+          <div class="eblock"><p class="etitle">Specs clés</p><p class="etext" style="margin-bottom:8px">W14 × D17 × H28 cm<br>Aluminium brut · réf. AE926-D360</p><div class="cdots"><div class="cdot2" style="background:#b5b0a8"></div><span class="clabel">Silver grey</span></div></div>
+        </div>
+        <div class="eblock-full"><p class="etitle">Designer</p><p class="etext">Claire Lavabre — diplômée ENSCI/Les Ateliers (2012), basée à Copenhague. Design d'objet & photographie.</p></div>
+      </div></div>
+    </div>
+
+    <div class="card" id="cc4">
+      <div class="card-hdr" onclick="tog('cc4')">
+        <div class="accent" style="background:#3b82f6"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Apex Collection</p><p class="pdes">John Tree</p></div>
+            <div class="pright"><span class="bdg bdg-upd">Update</span><span class="pmain">dès 95,83 € HT<span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-b">2 nouveaux coloris</span><span class="pill pill-n">4 formats</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">Gamme la plus complète du catalogue luminaires. Deux coloris saisonniers pour renouveler un intérieur sans changer de mobilier.</p></div>
+          <div class="eblock"><p class="etitle">Prix par format</p><table class="ptable"><tr><td>Desk Clip Lamp</td><td>95,83 € HT</td></tr><tr><td>Desk / Table Lamp</td><td>104,17 € HT</td></tr><tr><td>Floor Lamp</td><td>224,17 € HT</td></tr></table><div class="cdots" style="margin-top:8px"><div class="cdot2" style="background:#8b2635"></div><div class="cdot2" style="background:#a8b8cc"></div><span class="clabel">Maroon red · Pastel blue</span></div></div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- MOBILIER -->
+  <div class="sec" id="sec-mob">
+
+    <div class="card" id="cm1">
+      <div class="card-hdr" onclick="tog('cm1')">
+        <div class="accent" style="background:#22c55e"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Mimi Sofa</p><p class="pdes">Philippe Malouin</p></div>
+            <div class="pright"><span class="bdg bdg-new">Nouveau</span><span class="pfrom">à partir de</span><span class="pmain">1 249,17 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span><span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-g">Housse remplaçable</span><span class="pill pill-b">5 formats + ottoman</span><span class="pill pill-y">Durabilité</span><span class="pill pill-n">Contract</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">Housse remplaçable sans outil (velcro). Le canapé s'adapte aux tendances sans être remplacé. Argument fort durabilité et coût long terme.</p></div>
+          <div class="eblock"><p class="etitle">Gamme prix Gr. 1</p><table class="ptable"><tr><td>1 place — Gr. 1</td><td>1 249,17 € HT</td></tr><tr><td>2 places — Gr. 1</td><td>1 915,83 € HT</td></tr><tr><td>2,5 places — Gr. 1</td><td>2 290,83 € HT</td></tr><tr><td>3 places — Gr. 1</td><td>2 499,17 € HT</td></tr><tr><td>Ottoman — Gr. 1</td><td>915,83 € HT</td></tr></table></div>
+        </div>
+        <div class="eblock-full"><p class="etitle">Astuce salon</p><p class="etext">Montrer le geste de retrait de la housse sur l'exposant — c'est l'argument qui convainc immédiatement. Housse disponible à la revente séparément.</p></div>
+      </div></div>
+    </div>
+
+    <div class="card" id="cm2">
+      <div class="card-hdr" onclick="tog('cm2')">
+        <div class="accent" style="background:#3b82f6"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Chisel Collection</p><p class="pdes">Andreas Bergsaker</p></div>
+            <div class="pright"><span class="bdg bdg-upd">Update</span><span class="pfrom">à partir de</span><span class="pmain">282,50 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span><span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-y">Collection complète</span><span class="pill pill-b">Chaise → table ext.</span><span class="pill pill-n">Domestique & pro</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">Habiller une pièce entière avec une seule esthétique cohérente. Chaises, tabourets, bar stools, lounge chair, tables — tout matche.</p></div>
+          <div class="eblock"><p class="etitle">Repères prix</p><table class="ptable"><tr><td>Tabouret 10 (chêne huilé)</td><td>282,50 € HT</td></tr><tr><td>Bar Stool 30 Low (chêne huilé)</td><td>407,50 € HT</td></tr><tr><td>Chaise 65 (chêne huilé)</td><td>362,50 € HT</td></tr><tr><td>Lounge Chair 85 (laq. hêtre)</td><td>490,83 € HT</td></tr><tr><td>Table ronde Ø90</td><td>740,83 € HT</td></tr><tr><td>Table rect. L200</td><td>1 374,17 € HT</td></tr><tr><td>Table ext. L180/280</td><td>1 915,83 € HT</td></tr></table></div>
+        </div>
+        <div class="eblock-full"><p class="etitle">Essences</p><p class="etext">Chêne huilé · Chêne laqué · Chêne noir · Hêtre bordeaux · Hêtre blanc · Hêtre vert umber · Noyer laqué</p></div>
+      </div></div>
+    </div>
+
+    <div class="card" id="cm3">
+      <div class="card-hdr" onclick="tog('cm3')">
+        <div class="accent" style="background:#22c55e"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Backflip Chair + Bracket</p><p class="pdes">Gudmundur Ludvik</p></div>
+            <div class="pright"><span class="bdg bdg-new">Nouveau</span><span class="pmain">204,17 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span><span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-b">Chaise pliante design</span><span class="pill pill-y">Se suspend au mur</span><span class="pill pill-n">Petit espace</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">La première chaise pliante qui se range comme une œuvre d'art. Le bracket mural transforme la chaise en élément décoratif.</p></div>
+          <div class="eblock"><p class="etitle">Specs & prix</p><p class="etext" style="margin-bottom:8px">W48 × D53,5 × H78 cm<br>Hêtre massif laqué · 6 coloris</p><table class="ptable"><tr><td>Chaise</td><td>204,17 € HT</td></tr><tr><td>Wall Bracket</td><td>57,50 € HT</td></tr></table></div>
+        </div>
+        <div class="eblock-full"><p class="etitle">Astuce salon</p><p class="etext">Faire la démonstration du pliage en direct — le mécanisme est fluide et impressionne instantanément. Vente quasi certaine après démo.</p></div>
+      </div></div>
+    </div>
+
+    <div class="card" id="cm4">
+      <div class="card-hdr" onclick="tog('cm4')">
+        <div class="accent" style="background:#22c55e"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Pack Chair</p><p class="pdes">Jasper Morrison</p></div>
+            <div class="pright"><span class="bdg bdg-new">Nouveau</span><span class="pfrom">à partir de</span><span class="pmain">165,83 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span><span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-g">80% plastique recyclé</span><span class="pill pill-b">Flat-pack</span><span class="pill pill-n">Contract</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">80% plastique post-conso recyclé — argument RSE immédiat. Livraison à plat = stockage et logistique simplifiés pour les pros.</p></div>
+          <div class="eblock"><p class="etitle">Gamme prix</p><table class="ptable"><tr><td>Version plastique (Pack 10)</td><td>165,83 € HT</td></tr><tr><td>+ housse Remix (Pack 11)</td><td>dès 299,17 € HT</td></tr><tr><td>+ housse Steelcut (Pack 11)</td><td>dès 340,83 € HT</td></tr><tr><td>Version dossier chêne (Pack 11)</td><td>dès 332,50 € HT</td></tr></table></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card" id="cm5">
+      <div class="card-hdr" onclick="tog('cm5')">
+        <div class="accent" style="background:#3b82f6"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Mags Soft Low Armrest</p><p class="pdes">HAY · Housse amovible</p></div>
+            <div class="pright"><span class="bdg bdg-upd">Update</span><span class="pfrom">combi dès</span><span class="pmain">2 833,34 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span><span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-g">Housse remplaçable</span><span class="pill pill-b">Modulaire</span><span class="pill pill-n">Contract</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">Le Mags iconique repensé pour la durabilité. Housse velcro sans outil. Argument maintenance contract : changer la housse sans changer le canapé.</p></div>
+          <div class="eblock"><p class="etitle">Combinaisons Gr. 1</p><table class="ptable"><tr><td>Combi 2,5 pl. — Gr. 1</td><td>2 833,34 € HT</td></tr><tr><td>Combi 2,5 pl. — Gr. 2</td><td>3 100,00 € HT</td></tr><tr><td>Combi 2,5 pl. — Gr. 3</td><td>3 216,66 € HT</td></tr><tr><td>Combi 3 pl. — Gr. 1</td><td>dès 3 333 € HT</td></tr><tr><td>Module lounge L/R — Gr. 1</td><td>1 291,67 € HT</td></tr><tr><td>Module ottoman — Gr. 1</td><td>708,33 € HT</td></tr></table></div>
+        </div>
+        <div class="eblock-full">
+          <p class="etitle">Housses seules — tarif par module</p>
+          <div style="overflow-x:auto">
+            <table class="ctable">
+              <thead><tr><th style="width:44%">Module</th><th>Gr. 1</th><th>Gr. 2</th><th>Gr. 3</th></tr></thead>
+              <tbody>
+                <tr><td>Lounge L/R (W137,5)</td><td>820 €</td><td>930 €</td><td>1 150 €</td></tr>
+                <tr><td>Narrow middle (W74,5)</td><td>570 €</td><td>690 €</td><td>830 €</td></tr>
+                <tr><td>Narrow L/R (W102)</td><td>890 €</td><td>1 000 €</td><td>1 270 €</td></tr>
+                <tr><td>Wide L/R (W119)</td><td>890 €</td><td>1 000 €</td><td>1 270 €</td></tr>
+                <tr><td>Wide middle (W91,5)</td><td>680 €</td><td>800 €</td><td>980 €</td></tr>
+                <tr><td>Wide L/R deep (W119)</td><td>1 050 €</td><td>1 240 €</td><td>1 510 €</td></tr>
+                <tr><td>Ottoman (W79)</td><td>410 €</td><td>450 €</td><td>550 €</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Velcro sans outil · Gr.1 : Linara, Metaphor, Story · Gr.2 : Steelcut, Turf, Yuma · Gr.3 : Bolgheri, Hallingdal</p>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card" id="cm6">
+      <div class="card-hdr" onclick="tog('cm6')">
+        <div class="accent" style="background:#3b82f6"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <div><p class="pname">Tray Table</p><p class="pdes">HAY</p></div>
+            <div class="pright"><span class="bdg bdg-upd">Update</span><span class="pfrom">à partir de</span><span class="pmain">165,83 € <span style="font-size:10px;color:#aaa;font-weight:400">HT</span><span class="chev">▾</span></span></div>
+          </div>
+          <div class="pills"><span class="pill pill-b">Plateau amovible</span><span class="pill pill-n">Nouveau format Large</span></div>
+        </div>
+      </div>
+      <div class="expand"><div class="expand-inner">
+        <div class="egrid">
+          <div class="eblock"><p class="etitle">Pitch vendeur</p><p class="etext">Deux objets en un : table d'appoint et plateau de service. Le plateau se retire et s'emporte. Entrée de gamme idéale pour compléter un canapé.</p></div>
+          <div class="eblock"><p class="etitle">Formats & prix</p><table class="ptable"><tr><td>Small 30×30×34</td><td>165,83 € HT</td></tr><tr><td>Small High 30×30×44</td><td>170,83 € HT</td></tr><tr><td>Medium 40×40×44</td><td>174,17 € HT</td></tr><tr><td>Large 40×60×54</td><td>199,17 € HT</td></tr><tr><td>Coffee 60×60×39</td><td>212,50 € HT</td></tr></table></div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- SIMULATEUR -->
+  <div class="sec" id="sec-sim">
+    <p style="font-size:13px;color:#999;margin-bottom:16px;line-height:1.6;background:#fff;padding:14px;border-radius:12px;border:1px solid #e5e5e5">Configurez en direct face au client pour les produits à tarification complexe.</p>
+
+    <div class="simcard">
+      <div class="simhead"><p class="pname" style="margin-bottom:3px">Mimi Sofa</p><p class="pdes">Philippe Malouin</p></div>
+      <div class="simbody">
+        <div class="simrow"><label>Format</label><select id="mf" onchange="cm()"><option value="1249.17,624.17">1 place (W88 cm)</option><option value="1915.83,832.50">2 places (W160 cm)</option><option value="2290.83,957.50">2,5 places (W190 cm)</option><option value="2499.17,1082.50">3 places (W230 cm)</option><option value="915.83,457.50">Ottoman (W85 cm)</option></select></div>
+        <div class="simrow"><label>Groupe tissu</label><select id="mfab" onchange="cm()"><option value="0,0">Gr. 1 — Linara, Story</option><option value="225,225">Gr. 2 — Osumi, Steelcut</option><option value="341.66,283.33">Gr. 3 — Bolgheri</option><option value="741.66,683.33">Gr. 4 — Vidar</option></select></div>
+        <div class="simrow"><label>+ Housse seule</label><select id="mc" onchange="cm()"><option value="0">Non</option><option value="1">Oui</option></select></div>
+        <div class="resblock">
+          <div class="resrow"><span class="reslabel">Canapé</span><span class="resval" id="mb">1 249,17 €</span></div>
+          <div class="resrow" id="mcr" style="display:none"><span class="reslabel">Housse seule</span><span class="resval" id="mcv"></span></div>
+          <div class="restotal"><span class="restlabel">Total HT</span><span class="restprice" id="mt">1 249,17 €</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="simcard">
+      <div class="simhead"><p class="pname" style="margin-bottom:3px">Chisel 65 Chair</p><p class="pdes">Andreas Bergsaker</p></div>
+      <div class="simbody">
+        <div class="simrow"><label>Bois</label><select id="cw" onchange="cc()"><option value="362.50">Chêne huilé</option><option value="387.50">Chêne laqué</option><option value="387.50">Chêne noir</option><option value="387.50">Hêtre bordeaux</option><option value="387.50">Hêtre blanc</option><option value="387.50">Hêtre vert umber</option><option value="520.83">Noyer laqué</option></select></div>
+        <div class="simrow"><label>Garnissage</label><select id="cf" onchange="cc()"><option value="0">Sans</option><option value="258.33">Groupe 1</option><option value="275">Groupe 2</option><option value="300">Groupe 3</option><option value="341.67">Groupe 4</option><option value="433.33">Groupe 5</option></select></div>
+        <div class="resblock">
+          <div class="restotal"><span class="restlabel">Prix unitaire HT</span><span class="restprice" id="cp">362,50 €</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function showTab(id,el){
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
+  document.getElementById('sec-'+id).classList.add('on');
+  el.classList.add('on');
+}
+function tog(id){document.getElementById(id).classList.toggle('open')}
+function fmt(n){return n.toLocaleString('fr-FR')+'\u00a0€'}
+function cm(){
+  var fv=document.getElementById('mf').value.split(',');
+  var fabv=document.getElementById('mfab').value.split(',');
+  var sofa=parseInt(fv[0])+parseInt(fabv[0]);
+  var cov=parseInt(fv[1])+parseInt(fabv[1]);
+  var wc=document.getElementById('mc').value==='1';
+  document.getElementById('mb').textContent=fmt(sofa);
+  document.getElementById('mcv').textContent=fmt(cov);
+  document.getElementById('mcr').style.display=wc?'flex':'none';
+  document.getElementById('mt').textContent=fmt(sofa+(wc?cov:0));
+}
+function cc(){
+  var w=parseInt(document.getElementById('cw').value);
+  var f=parseInt(document.getElementById('cf').value);
+  document.getElementById('cp').textContent=fmt(w+f);
+}
+</script>
+</body>
+</html>
